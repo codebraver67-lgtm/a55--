@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tap on me to get a joke</title>
+</head>
+<body>
+<h2 id="joke">joke here</h2>
+
+<script>
+fetch("https://official-joke-api.appspot.com/random_joke")
+  .then(r => r.json())
+  .then(d => document.getElementById("joke").textContent = `${d.setup} - ${d.punchline}`)
+  .catch(e => console.error(e));
+</script>
+</body>
+</html>
